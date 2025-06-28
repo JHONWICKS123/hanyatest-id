@@ -117,7 +117,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Fitur Section -->
         <section id="fitur" class="py-20 bg-gray-900">
              <div class="container mx-auto px-6">
@@ -330,23 +330,23 @@
                             <p class="text-gray-300"><strong class="font-semibold">Email:</strong> support@hanyatest.id</p>
                             <p class="text-gray-300"><strong class="font-semibold">Telepon:</strong> (021) 555-1234</p>
                         </div>
-                        <form id="contact-form">
+                        <!-- PERUBAHAN PENTING DI BAWAH INI -->
+                        <form id="contact-form" action="https://formspree.io/f/mjkrjlyg" method="POST">
                             <div class="space-y-4">
                                 <div>
                                     <label for="name" class="sr-only">Nama</label>
-                                    <input type="text" id="name" name="name" placeholder="Nama Lengkap Anda" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <input type="text" id="name" name="name" placeholder="Nama Lengkap Anda" required class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                                 </div>
                                 <div>
                                     <label for="email" class="sr-only">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="Alamat Email" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <input type="email" id="email" name="email" placeholder="Alamat Email" required class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                                 </div>
                                 <div>
                                     <label for="phone" class="sr-only">Telepon</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Nomor Telepon" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <input type="tel" id="phone" name="phone" placeholder="Nomor Telepon" required class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                                 </div>
                                 <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform hover:scale-105">Kirim Permintaan</button>
                             </div>
-                             <p id="form-status" class="text-center mt-4 text-sm"></p>
                         </form>
                     </div>
                 </div>
@@ -371,7 +371,7 @@
 
     <!-- Recommendation Modal -->
     <div id="recommendation-modal" class="fixed inset-0 w-full h-full z-50 items-center justify-center p-4 modal-backdrop hidden">
-        <div class="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md mx-auto transform transition-all" id="modal-content">
+        <div id="modal-content" class="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md mx-auto transform transition-all">
             <div class="p-8 text-center">
                  <div id="modal-loading" class="flex flex-col items-center justify-center">
                     <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
@@ -393,185 +393,165 @@
     </div>
 
 
+    <!-- PERUBAHAN PENTING DI BAWAH INI -->
     <script>
-        // --- Mobile Menu ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // --- Contact Form ---
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            formStatus.textContent = 'Mengirim pesan...';
-            formStatus.classList.remove('text-red-500', 'text-green-500');
-            setTimeout(() => {
-                formStatus.textContent = 'Terima kasih! Tim kami akan segera menghubungi Anda.';
-                formStatus.classList.add('text-green-500');
-                contactForm.reset();
-            }, 1500);
-        });
-
-        // --- Gemini AI Recommendation Logic ---
-        const getRecommendationBtn = document.getElementById('get-recommendation-btn');
-        const modal = document.getElementById('recommendation-modal');
-        const modalContent = document.getElementById('modal-content');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const closeErrorModalBtn = document.getElementById('close-error-modal-btn');
-        const modalLoading = document.getElementById('modal-loading');
-        const modalResult = document.getElementById('modal-result');
-        const modalError = document.getElementById('modal-error');
-        const recommendationText = document.getElementById('recommendation-text');
-        const recommendedPackageCard = document.getElementById('recommended-package-card');
-
-        const packages = {
-            "Maxi 175": {
-                price: "Rp 395rb/bulan",
-                speed: "175 Mbps",
-                upSpeed: "225 Mbps"
-            },
-            "Maxi 200": {
-                price: "Rp 415rb/bulan",
-                speed: "200 Mbps",
-                upSpeed: "250 Mbps"
-            },
-            "Maxi 250": {
-                price: "Rp 435rb/bulan",
-                speed: "250 Mbps",
-                upSpeed: "300 Mbps",
-                popular: true
-            },
-            "Maxi 300": {
-                price: "Rp 515rb/bulan",
-                speed: "300 Mbps",
-                upSpeed: "400 Mbps"
-            }
-        };
-
-        function showModal() {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            // Animate entrance
-            setTimeout(() => {
-                modalContent.classList.add('scale-100', 'opacity-100');
-                modalContent.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-        }
-
-        function hideModal() {
-             modalContent.classList.add('scale-95', 'opacity-0');
-             modalContent.classList.remove('scale-100', 'opacity-100');
-             setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 200);
-        }
-
-        closeModalBtn.addEventListener('click', hideModal);
-        closeErrorModalBtn.addEventListener('click', hideModal);
-
-        getRecommendationBtn.addEventListener('click', async () => {
-            // Show modal with loading state
-            modalLoading.classList.remove('hidden');
-            modalResult.classList.add('hidden');
-            modalError.classList.add('hidden');
-            showModal();
-            
-            // Get user inputs
-            const userCount = document.getElementById('user-count').value;
-            const userActivity = document.getElementById('user-activity').value;
-            const deviceCount = document.getElementById('device-count').value;
-
-            // Construct the prompt for the Gemini API
-            const prompt = `Anda adalah asisten ahli dari provider internet HANYATEST.ID. Berdasarkan data pengguna berikut, rekomendasikan salah satu dari empat paket kami: "Maxi 175", "Maxi 200", "Maxi 250", atau "Maxi 300".
-            
-            Data Pengguna:
-            - Jumlah pengguna: ${userCount}
-            - Aktivitas utama: ${userActivity}
-            - Jumlah perangkat terhubung: ${deviceCount}
-
-            Deskripsi Paket:
-            1.  **Maxi 175**: Paling dasar, cocok untuk penggunaan ringan dan keluarga kecil. Speed 175 Mbps.
-            2.  **Maxi 200**: Pilihan seimbang untuk streaming HD dan WFH. Speed 200 Mbps.
-            3.  **Maxi 250**: Paket populer untuk streaming 4K dan gaming. Speed 250 Mbps.
-            4.  **Maxi 300**: Didesain untuk kebutuhan sangat berat, banyak perangkat, game online kompetitif, dan livestreaming. Speed 300 Mbps.
-
-            Berikan jawaban dalam format JSON berikut. Hanya berikan JSON, tanpa teks tambahan.
-            {
-                "recommended_package": "Nama Paket",
-                "reason": "Berikan alasan singkat (1-2 kalimat) mengapa paket ini direkomendasikan berdasarkan data pengguna."
-            }`;
-            
-            try {
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = "" // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`API request failed with status ${response.status}`);
-                }
-
-                const result = await response.json();
-                
-                if (result.candidates && result.candidates.length > 0) {
-                    const textResponse = result.candidates[0].content.parts[0].text;
-                    const cleanJsonString = textResponse.replace(/```json/g, '').replace(/```/g, '').trim();
-                    const aiResponse = JSON.parse(cleanJsonString);
-
-                    const recommendedPackageName = aiResponse.recommended_package;
-                    const reason = aiResponse.reason;
-
-                    recommendationText.textContent = reason;
-                    
-                    const pkgData = packages[recommendedPackageName];
-                    if(pkgData) {
-                        recommendedPackageCard.innerHTML = `
-                            <div class="bg-gray-700 p-6 rounded-lg border-2 border-blue-500 glow-border">
-                                <h4 class="text-xl font-bold text-gradient">${recommendedPackageName}</h4>
-                                <p class="text-2xl font-bold my-2">${pkgData.price}</p>
-                                <ul class="text-left space-y-2">
-                                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga ${pkgData.speed}</li>
-                                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga ${pkgData.upSpeed}</li>
-                                </ul>
-                                <a href="#kontak" onclick="hideModal()" class="block w-full text-center mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-transform hover:scale-105">Daftar Paket Ini</a>
-                            </div>
-                        `;
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.toggle('hidden');
                     }
-                    
-                    modalLoading.classList.add('hidden');
-                    modalResult.classList.remove('hidden');
+                });
+            }
+            
+            // --- Gemini AI Recommendation Logic ---
+            const getRecommendationBtn = document.getElementById('get-recommendation-btn');
+            const modal = document.getElementById('recommendation-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const closeErrorModalBtn = document.getElementById('close-error-modal-btn');
+            const modalLoading = document.getElementById('modal-loading');
+            const modalResult = document.getElementById('modal-result');
+            const modalError = document.getElementById('modal-error');
+            const recommendationText = document.getElementById('recommendation-text');
+            const recommendedPackageCard = document.getElementById('recommended-package-card');
 
-                } else {
-                    throw new Error("No candidates in API response.");
+            const packages = {
+                "Maxi 175": { price: "Rp 395rb/bulan", speed: "175 Mbps", upSpeed: "225 Mbps" },
+                "Maxi 200": { price: "Rp 415rb/bulan", speed: "200 Mbps", upSpeed: "250 Mbps" },
+                "Maxi 250": { price: "Rp 435rb/bulan", speed: "250 Mbps", upSpeed: "300 Mbps", popular: true },
+                "Maxi 300": { price: "Rp 515rb/bulan", speed: "300 Mbps", upSpeed: "400 Mbps" }
+            };
+
+            function showModal() {
+                if (modal && modalContent) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    setTimeout(() => {
+                        modalContent.classList.add('scale-100', 'opacity-100');
+                        modalContent.classList.remove('scale-95', 'opacity-0');
+                    }, 10);
                 }
+            }
 
-            } catch(error) {
-                console.error("Error calling Gemini API:", error);
-                modalLoading.classList.add('hidden');
-                modalError.classList.remove('hidden');
+            function hideModal() {
+                if (modal && modalContent) {
+                    modalContent.classList.add('scale-95', 'opacity-0');
+                    modalContent.classList.remove('scale-100', 'opacity-100');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                    }, 200);
+                }
+            }
+
+            if(closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+            if(closeErrorModalBtn) closeErrorModalBtn.addEventListener('click', hideModal);
+
+            if(getRecommendationBtn) {
+                getRecommendationBtn.addEventListener('click', async () => {
+                    if (modalLoading && modalResult && modalError) {
+                        modalLoading.classList.remove('hidden');
+                        modalResult.classList.add('hidden');
+                        modalError.classList.add('hidden');
+                    }
+                    showModal();
+                    
+                    const userCount = document.getElementById('user-count').value;
+                    const userActivity = document.getElementById('user-activity').value;
+                    const deviceCount = document.getElementById('device-count').value;
+
+                    const prompt = `Anda adalah asisten ahli dari provider internet HANYATEST.ID. Berdasarkan data pengguna berikut, rekomendasikan salah satu dari empat paket kami: "Maxi 175", "Maxi 200", "Maxi 250", atau "Maxi 300".
+            
+                    Data Pengguna:
+                    - Jumlah pengguna: ${userCount}
+                    - Aktivitas utama: ${userActivity}
+                    - Jumlah perangkat terhubung: ${deviceCount}
+
+                    Deskripsi Paket:
+                    1.  **Maxi 175**: Paling dasar, cocok untuk penggunaan ringan dan keluarga kecil. Speed 175 Mbps.
+                    2.  **Maxi 200**: Pilihan seimbang untuk streaming HD dan WFH. Speed 200 Mbps.
+                    3.  **Maxi 250**: Paket populer untuk streaming 4K dan gaming. Speed 250 Mbps.
+                    4.  **Maxi 300**: Didesain untuk kebutuhan sangat berat, banyak perangkat, game online kompetitif, dan livestreaming. Speed 300 Mbps.
+
+                    Berikan jawaban dalam format JSON berikut. Hanya berikan JSON, tanpa teks tambahan.
+                    {
+                        "recommended_package": "Nama Paket",
+                        "reason": "Berikan alasan singkat (1-2 kalimat) mengapa paket ini direkomendasikan berdasarkan data pengguna."
+                    }`;
+                    
+                    try {
+                        let chatHistory = [];
+                        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                        const payload = { contents: chatHistory };
+                        const apiKey = "" // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                        
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`API request failed with status ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        
+                        if (result.candidates && result.candidates.length > 0) {
+                            const textResponse = result.candidates[0].content.parts[0].text;
+                            const cleanJsonString = textResponse.replace(/```json/g, '').replace(/```/g, '').trim();
+                            const aiResponse = JSON.parse(cleanJsonString);
+
+                            const recommendedPackageName = aiResponse.recommended_package;
+                            const reason = aiResponse.reason;
+
+                            if (recommendationText) recommendationText.textContent = reason;
+                            
+                            const pkgData = packages[recommendedPackageName];
+                            if(pkgData && recommendedPackageCard) {
+                                recommendedPackageCard.innerHTML = `
+                                    <div class="bg-gray-700 p-6 rounded-lg border-2 border-blue-500 glow-border">
+                                        <h4 class="text-xl font-bold text-gradient">${recommendedPackageName}</h4>
+                                        <p class="text-2xl font-bold my-2">${pkgData.price}</p>
+                                        <ul class="text-left space-y-2">
+                                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga ${pkgData.speed}</li>
+                                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga ${pkgData.upSpeed}</li>
+                                        </ul>
+                                        <a href="#kontak" onclick="hideModal()" class="block w-full text-center mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-transform hover:scale-105">Daftar Paket Ini</a>
+                                    </div>
+                                `;
+                            }
+                            
+                            if(modalLoading) modalLoading.classList.add('hidden');
+                            if(modalResult) modalResult.classList.remove('hidden');
+
+                        } else {
+                            throw new Error("No candidates in API response.");
+                        }
+
+                    } catch(error) {
+                        console.error("Error calling Gemini API:", error);
+                        if(modalLoading) modalLoading.classList.add('hidden');
+                        if(modalError) modalError.classList.remove('hidden');
+                    }
+                });
+            }
+            
+
+            // --- Parallax Effect ---
+            const parallaxContainer = document.getElementById('parallax-container');
+            if (parallaxContainer) {
+                window.addEventListener('scroll', () => {
+                    const scrollPosition = window.scrollY;
+                    parallaxContainer.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+                });
             }
         });
-
-        // --- Parallax Effect ---
-        const parallaxContainer = document.getElementById('parallax-container');
-        if (parallaxContainer) {
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
-                // Faktor 0.4 membuat background bergerak lebih lambat dari kecepatan scroll
-                parallaxContainer.style.transform = `translateY(${scrollPosition * 0.4}px)`;
-            });
-        }
     </script>
 </body>
 </html>
