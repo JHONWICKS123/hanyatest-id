@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANYATEST.ID - Internet Cepat & Stabil</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a; /* Warna latar belakang sedikit lebih gelap */
+            color: #e5e7eb; /* Warna teks abu-abu terang */
+        }
+        /* Efek gradient untuk teks */
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Efek glow untuk border */
+        .glow-border {
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3), 0 0 5px rgba(96, 165, 250, 0.2);
+        }
+        /* Style untuk modal */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        /* CSS untuk efek gerakan lambat pada background */
+        #hero-background {
+            animation: slow-zoom 40s infinite alternate ease-in-out;
+            transform-origin: center center;
+        }
+
+        @keyframes slow-zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1); /* Zoom gambar sebesar 10% */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="bg-black bg-opacity-50 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gradient">
+                HANYATEST.ID
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#fitur" class="hover:text-blue-400 transition-colors">Fitur</a>
+                <a href="#rekomendasi" class="hover:text-blue-400 transition-colors">Rekomendasi AI</a>
+                <a href="#paket" class="hover:text-blue-400 transition-colors">Paket</a>
+                <a href="#testimoni" class="hover:text-blue-400 transition-colors">Testimoni</a>
+                <a href="#kontak" class="hover:text-blue-400 transition-colors">Kontak</a>
+            </div>
+            <a href="#paket" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-transform hover:scale-105">
+                Daftar Sekarang
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#fitur" class="block py-2 px-4 text-sm hover:bg-gray-800">Fitur</a>
+            <a href="#rekomendasi" class="block py-2 px-4 text-sm hover:bg-gray-800">Rekomendasi AI</a>
+            <a href="#paket" class="block py-2 px-4 text-sm hover:bg-gray-800">Paket</a>
+            <a href="#testimoni" class="block py-2 px-4 text-sm hover:bg-gray-800">Testimoni</a>
+            <a href="#kontak" class="block py-2 px-4 text-sm hover:bg-gray-800">Kontak</a>
+            <a href="#paket" class="block py-2 px-4 text-sm text-blue-400 font-bold hover:bg-gray-800">Daftar Sekarang</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative text-center py-24 md:py-32 px-6 overflow-hidden">
+            <!-- Container untuk Parallax -->
+            <div id="parallax-container" class="absolute top-0 left-0 w-full h-full -z-10">
+                <!-- Background Image yang bergerak lambat -->
+                <div id="hero-background" class="w-full h-full bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&auto=format&fit=crop');"></div>
+            </div>
+            
+            <!-- Dekorasi Blur -->
+            <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+            <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-500 rounded-full opacity-10 blur-3xl"></div>
+
+            <div class="relative z-10 container mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+                    Koneksi Internet <span class="text-gradient">Super Cepat & Stabil</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
+                    Nikmati pengalaman streaming, gaming, dan bekerja tanpa hambatan dengan jaringan fiber optik andal dari HANYATEST.ID.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#paket" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 w-full sm:w-auto">
+                        Lihat Paket & Harga
+                    </a>
+                    <a href="#kontak" class="bg-transparent border-2 border-gray-500 hover:bg-gray-800 hover:border-gray-400 text-white font-bold py-3 px-8 rounded-lg text-lg transition w-full sm:w-auto">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fitur Section -->
+        <section id="fitur" class="py-20 bg-gray-900">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Kenapa Memilih HANYATEST.ID?</h2>
+                    <p class="mt-4 text-gray-400">Kami memberikan lebih dari sekadar koneksi internet.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-blue-500 text-white rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Kecepatan Tinggi</h3>
+                        <p class="text-gray-400">Download, streaming film 4K, dan main game online tanpa lag sama sekali.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="bg-purple-500 text-white rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Koneksi Stabil</h3>
+                        <p class="text-gray-400">Jaringan andal 24/7 untuk semua kebutuhan WFH dan sekolah online Anda.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="bg-green-500 text-white rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 2c-2.21 0-4 1.79-4 4v1h8v-1c0-2.21-1.79-4-4-4z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-3-3h-1" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 20h5v-2a3 3 0 013-3h1" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Dukungan 24/7</h3>
+                        <p class="text-gray-400">Tim customer service kami siap membantu Anda kapan saja, tanpa libur.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="bg-gray-800 p-8 rounded-xl transform hover:-translate-y-2 transition-transform duration-300">
+                         <div class="bg-yellow-500 text-white rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0 10a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Gratis Instalasi</h3>
+                        <p class="text-gray-400">Biaya pemasangan gratis untuk semua pelanggan baru paket MAXI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemini AI Recommendation Section -->
+        <section id="rekomendasi" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="bg-gray-800 rounded-xl p-8 md:p-12 lg:p-16 border border-blue-500/30 glow-border">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl md:text-4xl font-bold">Bingung Pilih Paket?</h2>
+                        <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Jawab beberapa pertanyaan singkat dan biarkan <span class="text-gradient font-semibold">Asisten Cerdas AI</span> kami merekomendasikan paket yang paling pas untuk Anda.</p>
+                    </div>
+                    <div class="max-w-xl mx-auto">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="user-count" class="block text-lg font-medium text-gray-300 mb-2">Berapa orang yang akan menggunakan internet?</label>
+                                <select id="user-count" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <option>1 - 3 orang</option>
+                                    <option>4 - 6 orang</option>
+                                    <option>Lebih dari 6 orang</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="user-activity" class="block text-lg font-medium text-gray-300 mb-2">Untuk apa internet paling sering digunakan?</label>
+                                <select id="user-activity" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <option>Browsing & Media Sosial</option>
+                                    <option>Streaming Film & Video (Full HD/4K)</option>
+                                    <option>Game Online & Livestreaming</option>
+                                    <option>Bekerja dari Rumah (Video Call, Download/Upload besar)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="device-count" class="block text-lg font-medium text-gray-300 mb-2">Berapa banyak perangkat yang akan terhubung?</label>
+                                <select id="device-count" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    <option>1 - 5 perangkat</option>
+                                    <option>6 - 10 perangkat</option>
+                                    <option>10 - 15 perangkat</option>
+                                    <option>Lebih dari 15 perangkat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button id="get-recommendation-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 inline-flex items-center gap-2">
+                                ✨ Dapatkan Rekomendasi Paket
+                            </button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Paket Section -->
+        <section id="paket" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Paket MAXI</h2>
+                    <p class="mt-4 text-gray-400">Satu paket untuk semua aktivitas digital di rumah!</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Pricing Card 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-semibold mb-2 text-gradient">Maxi 175</h3>
+                        <p class="text-gray-400 mb-6">Cocok untuk keluarga kecil.</p>
+                        <p class="text-4xl font-bold mb-4">Rp 395<span class="text-xl font-medium text-gray-400">rb/bulan</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga 175 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga 225 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Kuota</li>
+                             <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gratis Biaya Instalasi</li>
+                        </ul>
+                        <a href="#kontak" class="w-full text-center mt-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition">Pilih Paket</a>
+                    </div>
+
+                    <!-- Pricing Card 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-semibold mb-2 text-gradient">Maxi 200</h3>
+                        <p class="text-gray-400 mb-6">Untuk streaming dan WFH.</p>
+                        <p class="text-4xl font-bold mb-4">Rp 415<span class="text-xl font-medium text-gray-400">rb/bulan</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                             <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga 200 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga 250 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Kuota</li>
+                             <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gratis Biaya Instalasi</li>
+                        </ul>
+                        <a href="#kontak" class="w-full text-center mt-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition">Pilih Paket</a>
+                    </div>
+
+                    <!-- Pricing Card 3 (Most Popular) -->
+                    <div class="bg-gray-800 p-8 rounded-xl border-2 border-blue-500 flex flex-col relative overflow-hidden glow-border transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-8 py-1 transform translate-x-8 translate-y-4 rotate-45">POPULER</div>
+                        <h3 class="text-2xl font-semibold mb-2 text-gradient">Maxi 250</h3>
+                        <p class="text-gray-400 mb-6">Kebutuhan gaming & 4K.</p>
+                        <p class="text-4xl font-bold mb-4">Rp 435<span class="text-xl font-medium text-gray-400">rb/bulan</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga 250 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga 300 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Kuota</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gratis Biaya Instalasi</li>
+                        </ul>
+                        <a href="#kontak" class="w-full text-center mt-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-transform hover:scale-105">Pilih Paket</a>
+                    </div>
+
+                    <!-- Pricing Card 4 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-semibold mb-2 text-gradient">Maxi 300</h3>
+                        <p class="text-gray-400 mb-6">Untuk profesional & kreator.</p>
+                        <p class="text-4xl font-bold mb-4">Rp 515<span class="text-xl font-medium text-gray-400">rb/bulan</span></p>
+                        <ul class="space-y-3 text-gray-300 mb-8 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga 300 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga 400 Mbps</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Kuota</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gratis Biaya Instalasi</li>
+                        </ul>
+                        <a href="#kontak" class="w-full text-center mt-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition">Pilih Paket</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimoni Section -->
+        <section id="testimoni" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Apa Kata Pelanggan Kami</h2>
+                    <p class="mt-4 text-gray-400">Kepuasan Anda adalah prioritas kami.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"Pindah ke HANYATEST.ID adalah keputusan terbaik. Internetnya kenceng banget, anak-anak jadi lancar sekolah online. Recommended!"</p>
+                        <div class="mt-4 flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/a78bfa/FFFFFF?text=S" alt="Foto profil Sarah">
+                            <div>
+                                <p class="font-semibold">Sarah Widiastuti</p>
+                                <p class="text-sm text-gray-400">Ibu Rumah Tangga, Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"Sebagai freelancer, koneksi stabil itu wajib. Selama pakai HANYATEST.ID, belum pernah ada drama koneksi putus pas lagi meeting penting. Mantap!"</p>
+                        <div class="mt-4 flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/60a5fa/FFFFFF?text=B" alt="Foto profil Budi">
+                            <div>
+                                <p class="font-semibold">Budi Santoso</p>
+                                <p class="text-sm text-gray-400">Graphic Designer, Bandung</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"Saya gamer, jadi ping kecil itu harga mati. HANYATEST.ID ngasih koneksi yang super stabil dan ping-nya rendah. Main game kompetitif jadi aman jaya."</p>
+                        <div class="mt-4 flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/34d399/FFFFFF?text=R" alt="Foto profil Rian">
+                            <div>
+                                <p class="font-semibold">Rian Ardiansyah</p>
+                                <p class="text-sm text-gray-400">Mahasiswa & Gamer, Surabaya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontak" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="bg-gray-800 rounded-xl p-8 md:p-12 lg:p-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Siap Bergabung dengan <span class="text-gradient">HANYATEST.ID</span>?</h2>
+                            <p class="text-gray-400 mb-6">Isi formulir di samping, atau hubungi kami langsung. Tim kami akan segera membantu proses pendaftaran dan instalasi di lokasi Anda.</p>
+                            <p class="text-gray-300"><strong class="font-semibold">Email:</strong> support@hanyatest.id</p>
+                            <p class="text-gray-300"><strong class="font-semibold">Telepon:</strong> (021) 555-1234</p>
+                        </div>
+                        <form id="contact-form">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="name" class="sr-only">Nama</label>
+                                    <input type="text" id="name" name="name" placeholder="Nama Lengkap Anda" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Alamat Email" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                </div>
+                                <div>
+                                    <label for="phone" class="sr-only">Telepon</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Nomor Telepon" class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform hover:scale-105">Kirim Permintaan</button>
+                            </div>
+                             <p id="form-status" class="text-center mt-4 text-sm"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-lg font-bold text-gradient mb-4 md:mb-0">HANYATEST.ID</p>
+            <p class="text-gray-400 text-sm">&copy; 2025 HANYATEST.ID. Semua Hak Cipta Dilindungi.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <!-- Social media icons would go here -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Recommendation Modal -->
+    <div id="recommendation-modal" class="fixed inset-0 w-full h-full z-50 items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md mx-auto transform transition-all" id="modal-content">
+            <div class="p-8 text-center">
+                 <div id="modal-loading" class="flex flex-col items-center justify-center">
+                    <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
+                    <p class="mt-4 text-lg">AI sedang menganalisis kebutuhan Anda...</p>
+                 </div>
+                 <div id="modal-result" class="hidden">
+                    <h3 class="text-2xl font-bold mb-2">Rekomendasi Paket Untuk Anda</h3>
+                    <p id="recommendation-text" class="text-gray-300 mt-4 mb-6"></p>
+                    <div id="recommended-package-card" class="mb-6"></div>
+                    <button id="close-modal-btn" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition">Tutup</button>
+                 </div>
+                 <div id="modal-error" class="hidden">
+                     <h3 class="text-2xl font-bold mb-2 text-red-500">Oops! Terjadi Kesalahan</h3>
+                     <p class="text-gray-300 mt-4 mb-6">Tidak dapat menghubungi Asisten AI saat ini. Silakan coba lagi nanti.</p>
+                     <button id="close-error-modal-btn" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition">Tutup</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // --- Contact Form ---
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formStatus.textContent = 'Mengirim pesan...';
+            formStatus.classList.remove('text-red-500', 'text-green-500');
+            setTimeout(() => {
+                formStatus.textContent = 'Terima kasih! Tim kami akan segera menghubungi Anda.';
+                formStatus.classList.add('text-green-500');
+                contactForm.reset();
+            }, 1500);
+        });
+
+        // --- Gemini AI Recommendation Logic ---
+        const getRecommendationBtn = document.getElementById('get-recommendation-btn');
+        const modal = document.getElementById('recommendation-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const closeErrorModalBtn = document.getElementById('close-error-modal-btn');
+        const modalLoading = document.getElementById('modal-loading');
+        const modalResult = document.getElementById('modal-result');
+        const modalError = document.getElementById('modal-error');
+        const recommendationText = document.getElementById('recommendation-text');
+        const recommendedPackageCard = document.getElementById('recommended-package-card');
+
+        const packages = {
+            "Maxi 175": {
+                price: "Rp 395rb/bulan",
+                speed: "175 Mbps",
+                upSpeed: "225 Mbps"
+            },
+            "Maxi 200": {
+                price: "Rp 415rb/bulan",
+                speed: "200 Mbps",
+                upSpeed: "250 Mbps"
+            },
+            "Maxi 250": {
+                price: "Rp 435rb/bulan",
+                speed: "250 Mbps",
+                upSpeed: "300 Mbps",
+                popular: true
+            },
+            "Maxi 300": {
+                price: "Rp 515rb/bulan",
+                speed: "300 Mbps",
+                upSpeed: "400 Mbps"
+            }
+        };
+
+        function showModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Animate entrance
+            setTimeout(() => {
+                modalContent.classList.add('scale-100', 'opacity-100');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        function hideModal() {
+             modalContent.classList.add('scale-95', 'opacity-0');
+             modalContent.classList.remove('scale-100', 'opacity-100');
+             setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 200);
+        }
+
+        closeModalBtn.addEventListener('click', hideModal);
+        closeErrorModalBtn.addEventListener('click', hideModal);
+
+        getRecommendationBtn.addEventListener('click', async () => {
+            // Show modal with loading state
+            modalLoading.classList.remove('hidden');
+            modalResult.classList.add('hidden');
+            modalError.classList.add('hidden');
+            showModal();
+            
+            // Get user inputs
+            const userCount = document.getElementById('user-count').value;
+            const userActivity = document.getElementById('user-activity').value;
+            const deviceCount = document.getElementById('device-count').value;
+
+            // Construct the prompt for the Gemini API
+            const prompt = `Anda adalah asisten ahli dari provider internet HANYATEST.ID. Berdasarkan data pengguna berikut, rekomendasikan salah satu dari empat paket kami: "Maxi 175", "Maxi 200", "Maxi 250", atau "Maxi 300".
+            
+            Data Pengguna:
+            - Jumlah pengguna: ${userCount}
+            - Aktivitas utama: ${userActivity}
+            - Jumlah perangkat terhubung: ${deviceCount}
+
+            Deskripsi Paket:
+            1.  **Maxi 175**: Paling dasar, cocok untuk penggunaan ringan dan keluarga kecil. Speed 175 Mbps.
+            2.  **Maxi 200**: Pilihan seimbang untuk streaming HD dan WFH. Speed 200 Mbps.
+            3.  **Maxi 250**: Paket populer untuk streaming 4K dan gaming. Speed 250 Mbps.
+            4.  **Maxi 300**: Didesain untuk kebutuhan sangat berat, banyak perangkat, game online kompetitif, dan livestreaming. Speed 300 Mbps.
+
+            Berikan jawaban dalam format JSON berikut. Hanya berikan JSON, tanpa teks tambahan.
+            {
+                "recommended_package": "Nama Paket",
+                "reason": "Berikan alasan singkat (1-2 kalimat) mengapa paket ini direkomendasikan berdasarkan data pengguna."
+            }`;
+            
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "" // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0) {
+                    const textResponse = result.candidates[0].content.parts[0].text;
+                    const cleanJsonString = textResponse.replace(/```json/g, '').replace(/```/g, '').trim();
+                    const aiResponse = JSON.parse(cleanJsonString);
+
+                    const recommendedPackageName = aiResponse.recommended_package;
+                    const reason = aiResponse.reason;
+
+                    recommendationText.textContent = reason;
+                    
+                    const pkgData = packages[recommendedPackageName];
+                    if(pkgData) {
+                        recommendedPackageCard.innerHTML = `
+                            <div class="bg-gray-700 p-6 rounded-lg border-2 border-blue-500 glow-border">
+                                <h4 class="text-xl font-bold text-gradient">${recommendedPackageName}</h4>
+                                <p class="text-2xl font-bold my-2">${pkgData.price}</p>
+                                <ul class="text-left space-y-2">
+                                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Speed hingga ${pkgData.speed}</li>
+                                    <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up Speed hingga ${pkgData.upSpeed}</li>
+                                </ul>
+                                <a href="#kontak" onclick="hideModal()" class="block w-full text-center mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-transform hover:scale-105">Daftar Paket Ini</a>
+                            </div>
+                        `;
+                    }
+                    
+                    modalLoading.classList.add('hidden');
+                    modalResult.classList.remove('hidden');
+
+                } else {
+                    throw new Error("No candidates in API response.");
+                }
+
+            } catch(error) {
+                console.error("Error calling Gemini API:", error);
+                modalLoading.classList.add('hidden');
+                modalError.classList.remove('hidden');
+            }
+        });
+
+        // --- Parallax Effect ---
+        const parallaxContainer = document.getElementById('parallax-container');
+        if (parallaxContainer) {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                // Faktor 0.4 membuat background bergerak lebih lambat dari kecepatan scroll
+                parallaxContainer.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+            });
+        }
+    </script>
+</body>
+</html>
